@@ -1,0 +1,8 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password" : "1234",
+    "database" : "leave",
+    "connectionLimit" : 50,
+    "charset": "utf8"
+}
