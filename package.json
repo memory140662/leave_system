@@ -15,7 +15,9 @@
   },
   "homepage": "https://github.com/memory140662/node-react-mysql-firebase#readme",
   "scripts": {
-    "start": "node ./bin/www & node ./node_modules/.bin/webpack --watch"
+    "start": "node ./bin/www & webpack -p",
+    "watch": "webpack --watch",
+    "dev": "node ./bin/www"
   },
   "dependencies": {
     "axios": "^0.16.1",
@@ -29,18 +31,10 @@
     "morgan": "~1.8.1",
     "mysql": "^2.13.0",
     "prop-types": "^15.5.10",
-    "pug": "^2.0.0-rc.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "redux": "^3.6.0",
-    "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^4.3.0",
-    "redux-thunk": "^2.2.0",
-    "serve-favicon": "~2.4.2",
-    "uglify-js": "^3.0.15",
     "webpack": "^2.6.1"
   },
   "devDependencies": {

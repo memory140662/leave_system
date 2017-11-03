@@ -38,9 +38,10 @@ router.post('/login', (req, res, next)=> {
     let admin = 'N';
 
     query(next, 
-        'SELECT  _id, username, admin FROM user WHERE username = ? AND password = ?', 
+        'SELECT  _id, username, admin FROM user WHERE UPPER(username) = UPPER(?) AND password = ?', 
         [user.username, user.password], 
         (results, fields) => {
+            console.log(results);
             if (results.length > 0) {
                 username = results[0].username;
                 id = results[0]._id;
@@ -64,9 +65,9 @@ router.post('/login', (req, res, next)=> {
 router.put('/:id', (req, res, next) => {
     var id = req.params.id;
     var user = req.body;
-    console.log(user);
     var result = utils.composeUpdateSql(user, 'user');
     result.values.push(id);
+    console.log(result.sql);
     query(next, result.sql, result.values,(results) => {
         selectAllUser(next, res);
     });
@@ -75,8 +76,10 @@ router.put('/:id', (req, res, next) => {
 // Delete
 router.delete('/:id', (req, res, next) => {
     var id = req.params.id;
-    query(next, 'DELETE FROM user WHERE _id = ?', [id], () => {
-        selectAllUser(next, res);
+    query(next, 'DELETE FROM leave_history WHERE user_id = ?', [id],() => {
+        query(next, 'DELETE FROM user WHERE _id = ?', [id], () => {
+            selectAllUser(next, res);
+        });
     });
 });
 

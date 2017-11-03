@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LoginInputGroup from './LoginInputGroup';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
-import { database } from '../../../config/firebase_config';
+// import { database } from '../../../config/firebase_config';
 import url from 'url';
 let history = createBrowserHistory();
 
@@ -18,21 +18,10 @@ class LoginForm extends Component {
         }
     }
 
-    componentDidMount() {
-
-        let config = {username: 1234};
-
-
-        document.cookie = 'username' + '=' + JSON.stringify(config);
-
-        console.log(url.parse(location.href));
-    }
-
     handleSubmit(event) {
         event.preventDefault();
         const { username, password } = this.state;
         this.setState({isEmpty: true});
-
         axios.post('/api/user/login', {username, password})
         .then(({data}) => {
             let {id, username, token, admin} = data;

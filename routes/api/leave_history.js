@@ -37,6 +37,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     let history = req.body;
+    console.log(history);
     let sql = 'INSERT INTO leave_history SET ?';
     query(next, sql, history, () => {
         selectAllHisByUserId(history.userId, res, next);

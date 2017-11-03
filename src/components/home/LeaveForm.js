@@ -6,8 +6,11 @@ import { createBrowserHistory } from 'history';
 class LeaveForm extends Component {
 
     constructor(props) {
+
         super(props);
-        let date = new Date().toISOString().split(/T/)[0];
+        let now = new Date();
+        if (now.getHours() > 18) now.setDate(now.getDate() + 1);
+        let date = `${now.getFullYear()}-${now.getMonth() + 1}-${((now.getDate() < 10) ? '0' : '') + now.getDate()}`
         this.state = {
             date_fr: date,
             date_to: date,

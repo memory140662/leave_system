@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import EmployeeLayout from './EmployeeLayout';
-import EmployeeLayout from '../../container/EmployeeLayout';
+import EmployeeLayout from './EmployeeLayout';
 import LeaveLayout from './LeaveLayout';
 import TypeLayout from './TypeLayout';
 
