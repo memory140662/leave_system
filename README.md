@@ -1,4 +1,4 @@
-# node-react-mysql-firebase
+# node-react-mysql
 
 <p>這是一個 簡單的請假系統小專案 利用了 Node + React + Mysql </p>
 <p>
